@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Fondamentaux scientifiques" />
+		<Option title="traitement-des-donnees" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Fondamentaux scientifiques" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/traitement-des-donnees" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Fondamentaux scientifiques" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/traitement-des-donnees" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -39,10 +39,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="donnees.h" />
-		<Unit filename="generationCode.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="generationCode.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
