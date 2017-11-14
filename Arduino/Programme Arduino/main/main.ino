@@ -134,7 +134,7 @@ digitalWrite(L9,LOW);
 digitalWrite(48,HIGH);
 digitalWrite(L10,LOW);
 delay(attente/2);
-digitalWrite(48,LOW);x
+digitalWrite(48,LOW);
   }
   else
   {
