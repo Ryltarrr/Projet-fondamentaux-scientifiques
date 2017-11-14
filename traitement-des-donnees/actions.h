@@ -1,12 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "donnees.h"
 
-void afficherDonneesOrdreCSV();
-void afficherDonneesTempsCrois();
-void afficherDonneesTempsDecrois();
+void afficherDonneesOrdreCSV(Bpm *tab, int compteur);
+void afficherDonneesTempsCrois(Bpm *tab, int compteur);
+void afficherDonneesTempsDecrois(Bpm *tab, int compteur);
 void afficherDonneesPoulsCrois();
 void afficherDonneesPoulsDecrois();
 void afficherPoulsTempsDonne();
 void afficherMoyPoulsPlageTemps();
-void afficherNbrLignes();
-void afficherMaxMin();
+void afficherNbrLignes(int compteur);
+void afficherMaxMin(Bpm *tab, int compteur);

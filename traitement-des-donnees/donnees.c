@@ -1,9 +1,8 @@
 #include "donnees.h"
 
-void lectureCSV() {
-  int i, j = 0;
+int lectureEcritureCSV(Bpm *tab) {
+  int compteur = 0;
   char chaine[20];
-  Bpm tab[100];
 
   FILE* fichier = fopen("csv_test.csv", "r");
   if (fichier == NULL) {
@@ -11,12 +10,10 @@ void lectureCSV() {
     exit(0);
   }
 
-  while(fgets(chaine, 20, fichier)) {
-    sscanf(chaine, "%d;%d", &tab[j].temps, &tab[j].freq);
-    j++;
+  while(fgets(chaine, NBR_MAX_VALEURS, fichier)) {
+    sscanf(chaine, "%d;%d", &tab[compteur].temps, &tab[compteur].freq);
+    compteur++;
   }
 
-  for (i = 0; i < j; i++) {
-    printf("Temps : %d ; Frequence : %d\n", tab[i].temps, tab[i].freq);
-  }
+  return compteur;
 }

@@ -1,29 +1,23 @@
 # depslib dependency file v1.0
-1510665513 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\actions.c
+1510685524 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\actions.c
 	"actions.h"
 
-1510672864 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\donnees.c
+1510684158 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\donnees.c
 	"donnees.h"
 
-1510671549 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\main.c
-	<stdio.h>
-	<stdlib.h>
-	"donnees.h"
+1510684054 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\main.c
 	"menu.h"
 
-1510665823 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\menu.c
+1510685539 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\menu.c
 	"menu.h"
 
-1510665055 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\menu.h
-	<stdio.h>
-	<stdlib.h>
+1510684014 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\menu.h
 	"actions.h"
 
-1510663597 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\actions.h
-	<stdio.h>
-	<stdlib.h>
+1510685397 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\actions.h
+	"donnees.h"
 
-1510672799 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\donnees.h
+1510684074 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\donnees.h
 	<stdio.h>
 	<stdlib.h>
 

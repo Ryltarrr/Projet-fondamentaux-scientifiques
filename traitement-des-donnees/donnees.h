@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define NBR_MAX_VALEURS 1000
+#define NBR_MAX_VALEURS 250
 
 typedef struct {
   int temps;
   int freq;
 } Bpm;
 
-void lectureCSV();
+int lectureEcritureCSV(Bpm *tab);

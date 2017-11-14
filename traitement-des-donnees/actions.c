@@ -1,15 +1,34 @@
 #include "actions.h"
 
-void afficherDonneesOrdreCSV() {
-  printf("\nA\n");
+void afficherDonneesOrdreCSV(Bpm *tab, int compteur) {
+  int i;
+  printf("Données contenue dans le fichier CSV : \n");
+  for (i = 1; i < compteur; i++) {
+    printf("%d;%d\n", tab[i].temps, tab[i].freq);
+  }
 }
 
-void afficherDonneesTempsCrois() {
-  printf("\nA\n");
+void afficherDonneesTempsCrois(Bpm *tab, int compteur) {
+  int i;
+  printf("Valeur du pouls dans le temps croissant :\n");
+  for (i = 1; i < compteur; i++) {
+    printf("%d BPM\n", tab[i].freq);
+  }
 }
 
-void afficherDonneesTempsDecrois() {
-  printf("\nA\n");
+void afficherDonneesTempsDecrois(Bpm *tab, int compteur) {
+  int i, j = 0;
+  Bpm reversedTab[NBR_MAX_VALEURS];
+  /*
+  for (i = compteur-1; i > 0; i++) {
+    reversedTab[j].temps = tab[i].temps;
+    reversedTab[j].freq = tab[i].freq;
+    j++;
+  }
+  for (i = 1; i < compteur; i++) {
+    printf("%d;%d\n", reversedTab[i].temps, reversedTab[i].freq);
+  }
+  */
 }
 
 void afficherDonneesPoulsCrois() {
@@ -28,10 +47,22 @@ void afficherMoyPoulsPlageTemps() {
   printf("\nA\n");
 }
 
-void afficherNbrLignes() {
-  printf("\nA\n");
+void afficherNbrLignes(int compteur) {
+  printf("Il y a %i lignes de données dans le fichier CSV.\n", compteur-1);
 }
 
-void afficherMaxMin() {
-  printf("\nA\n");
+void afficherMaxMin(Bpm *tab, int compteur) {
+  int i, max = -1, min = 220, tpsMax, tpsMin;
+  for (i = 1; i < compteur; i ++) {
+    if (tab[i].freq > max) {
+      max = tab[i].freq;
+      tpsMax = tab[i].temps;
+    }
+    if (tab[i].freq < min) {
+      min = tab[i].freq;
+      tpsMin = tab[i].temps;
+    }
+  }
+  printf("La valeur maximale est : %i à %i millisecondes.\n", max, tpsMax);
+  printf("La valeur minimale est : %i à %i millisecondes.\n", min, tpsMin);
 }

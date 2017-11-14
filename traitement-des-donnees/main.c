@@ -1,13 +1,15 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "donnees.h"
 #include "menu.h"
 
-int main()
-{
-    lectureCSV();
-    //afficherMenu();
-    return 0;
+int main() {
+  Bpm tab[NBR_MAX_VALEURS];
+  int compteur = lectureEcritureCSV(tab);
+  int choix = afficherMenu();
+  while (choix != 0) {
+    tacheChoisie(choix, tab, compteur);
+    choix = afficherMenu();
+  }
+  printf("Au revoir et à bientôt !\n");
+  return 0;
 }
 
 

@@ -1,7 +1,7 @@
 #include "menu.h"
 
 int afficherMenu () {
-  int choix;
+  int choix = -1;
   printf("\nMenu :\nSaisissez une tache à effectuer.\n");
   printf("0 - Pour quitter ce programme.\n");
   printf("1 - Afficher les données du fichier CSV.\n");
@@ -12,57 +12,47 @@ int afficherMenu () {
   printf("6 - Rechercher et afficher le pouls d'un temps donné.\n");
   printf("7 - Afficher la moyenne de pouls pour une plage de temps donné.\n");
   printf("8 - Afficher le nombre de lignes de données en mémoire.\n");
-  printf("9 - Rechercher et afficher les max et min du pouls avec leur temps associé.\nVotre choix : ");
+  printf("9 - Rechercher et afficher les max et min du pouls avec leur temps associé.\n\nVotre choix : ");
   scanf("%i", &choix);
-  tacheChoisie(choix);
-  return 0;
+  while (choix < 0 || choix > 9) {
+    printf("Cette tâche n'existe pas, veuillez saisir une valeur de tâche valide : ");
+    scanf("%i", &choix);
+  }
+  printf("\n");
+  return choix;
 }
 
-void tacheChoisie(int choix) {
+void tacheChoisie(int choix, Bpm *tab, int compteur) {
   switch (choix) {
-  case 0:
-    printf("Au revoir et à bientôt...");
-    exit(0);
-    break;
   case 1:
-    afficherDonneesOrdreCSV();
-    afficherMenu();
+    afficherDonneesOrdreCSV(tab, compteur);
     break;
   case 2:
-    afficherDonneesPoulsCrois();
-    afficherMenu();
+    afficherDonneesTempsCrois(tab, compteur);
     break;
   case 3:
-    afficherDonneesPoulsDecrois();
-    afficherMenu();
+    afficherDonneesTempsDecrois(tab, compteur);
     break;
   case 4:
-    afficherDonneesTempsCrois();
-    afficherMenu();
+    afficherDonneesPoulsCrois();
     break;
   case 5:
-    afficherDonneesTempsDecrois();
-    afficherMenu();
+    afficherDonneesPoulsDecrois();
     break;
   case 6:
     afficherPoulsTempsDonne();
-    afficherMenu();
     break;
   case 7:
     afficherMoyPoulsPlageTemps();
-    afficherMenu();
     break;
   case 8:
-    afficherNbrLignes();
-    afficherMenu();
+    afficherNbrLignes(compteur);
     break;
   case 9:
-    afficherMaxMin();
-    afficherMenu();
+    afficherMaxMin(tab, compteur);
     break;
   default:
     printf("La valeur saisie ne correspond à aucune tâche...");
-    afficherMenu();
     break;
   }
 }
