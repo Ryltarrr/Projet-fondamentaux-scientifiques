@@ -1,4 +1,6 @@
+/*#include "param.h" */
 #include <LiquidCrystal.h>
+
 LiquidCrystal lcd(8,9,4,5,6,7);  
  
 int keypad_pin = A0;
@@ -11,13 +13,45 @@ byte mainMenuPage = 1;
 byte mainMenuPageOld = 1;
 byte mainMenuTotal = 4;
  
-void setup()
-{
+
+
+const int L1 = 30;
+const int L2 = 31;
+const int L3 = 32;
+const int L4 = 33;
+const int L5 = 34;
+const int L6 = 35;
+const int L7 = 36;
+const int L8 = 37;
+const int L9 = 38;
+const int L10 = 39;
+
+
+
+
+
+void setup() {
+
+pinMode(L1,OUTPUT);
+pinMode(L2,OUTPUT);
+pinMode(L3,OUTPUT);
+pinMode(L4,OUTPUT);
+pinMode(L5,OUTPUT);
+pinMode(L6,OUTPUT);
+pinMode(L7,OUTPUT);
+pinMode(L8,OUTPUT);
+pinMode(L9,OUTPUT);
+pinMode(L10,OUTPUT);
+
     lcd.begin(16,2);  //Initialize a 2x16 type LCD
  
     MainMenuDisplay();
     delay(1000);
 }
+
+
+
+
 void loop()
 {
     btn_push = ReadKeypad();
@@ -30,7 +64,7 @@ void loop()
         switch (mainMenuPage)
         {
             case 1:
-              MenuA();
+              CoeurAllume();
               break;
             case 2:
               MenuB();
@@ -52,7 +86,7 @@ void loop()
     delay(10);
  
 }//--------------- End of loop() loop ---------------------
-void MenuA()
+void CoeurAllume()
 {  
     lcd.clear();
     lcd.setCursor(0,0);
@@ -108,7 +142,7 @@ void MainMenuDisplay()
     switch (mainMenuPage)
     {
         case 1:
-          lcd.print("1. Menu A");
+          lcd.print("1. CoeurAllume");
           break;
         case 2:
           lcd.print("2. Menu B");
@@ -176,3 +210,35 @@ void WaitBtnRelease()
 {
     while( analogRead(keypad_pin) < 800){}
 }
+
+
+/*
+switch () {
+  case 0;
+  CoeurAllume();
+  break;
+
+  case 1;
+  UnsurDeux();
+  break;
+ 
+  case 2;
+  UnsurTrois();
+  break;
+  case 3;
+  Chenille();
+  break;
+  case 4;
+  ChoisirUn();
+  break;
+}
+
+*/
+
+
+
+
+
+
+
+
