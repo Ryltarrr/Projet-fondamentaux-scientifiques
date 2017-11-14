@@ -19,16 +19,15 @@ void afficherDonneesTempsCrois(Bpm *tab, int compteur) {
 void afficherDonneesTempsDecrois(Bpm *tab, int compteur) {
   int i, j = 0;
   Bpm reversedTab[NBR_MAX_VALEURS];
-  /*
-  for (i = compteur-1; i > 0; i++) {
+
+  for (i = compteur-1; i > 0; i--) {
     reversedTab[j].temps = tab[i].temps;
     reversedTab[j].freq = tab[i].freq;
     j++;
   }
-  for (i = 1; i < compteur; i++) {
-    printf("%d;%d\n", reversedTab[i].temps, reversedTab[i].freq);
+  for (i = 0; i < compteur-1; i++) {
+    printf("%d BPM\n", reversedTab[i].freq);
   }
-  */
 }
 
 void afficherDonneesPoulsCrois() {
@@ -39,8 +38,19 @@ void afficherDonneesPoulsDecrois() {
   printf("\nA\n");
 }
 
-void afficherPoulsTempsDonne() {
-  printf("\nA\n");
+void afficherPoulsTempsDonne(Bpm *tab, int compteur) {
+  int i, tps, trouve = 0;
+  printf("Saisissez une valeur de temps pour connaître le pouls correspondant : ");
+  scanf("%i", &tps);
+  for (i = 1; i < compteur; i++) {
+    if (tab[i].temps == tps) {
+      printf("Pour le temps de %i millisecondes, le pouls est %i BPM.\n", tps, tab[i].freq);
+      trouve = 1;
+    }
+  }
+  if (trouve == 0) {
+    printf("Désolé %i millisecondes ne correspond pas à une valeur de temps enregistrée.\n", tps);
+  }
 }
 
 void afficherMoyPoulsPlageTemps() {

@@ -40,7 +40,7 @@ void tacheChoisie(int choix, Bpm *tab, int compteur) {
     afficherDonneesPoulsDecrois();
     break;
   case 6:
-    afficherPoulsTempsDonne();
+    afficherPoulsTempsDonne(tab, compteur);
     break;
   case 7:
     afficherMoyPoulsPlageTemps();
