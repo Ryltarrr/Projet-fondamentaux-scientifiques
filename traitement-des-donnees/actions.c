@@ -53,8 +53,38 @@ void afficherPoulsTempsDonne(Bpm *tab, int compteur) {
   }
 }
 
-void afficherMoyPoulsPlageTemps() {
-  printf("\nA\n");
+void afficherMoyPoulsPlageTemps(Bpm *tab, int compteur) {
+  int i, debut, fin, dChange = 0, fChange = 0;
+  float somme = 0.0;
+  printf("Saisissez la valeur de début de la plage : ");
+  scanf("%i", &debut);
+  printf("Saisissez la valeur de fin de la plage : ");
+  scanf("%i", &fin);
+  for (i = 1; i < compteur; i++) {
+    if (dChange == 0 || fChange == 0) {
+      if (tab[i].temps == debut) {
+        debut = i;
+        dChange = 1;
+      }
+      if (tab[i].temps == fin) {
+        fin = i;
+        fChange = 1;
+      }
+    }
+  }
+  if (dChange == 0 && fChange == 0) {
+    printf("La borne inférieur et la borne supérieur sont incorrectes, veuillez recommencer...\n");
+  } else if (dChange == 0) {
+    printf("La borne inférieur est incorrecte, veuillez recommencer...\n");
+  } else if (fChange == 0) {
+    printf("La borne supérieur est incorrecte, veuillez recommencer...\n");
+  } else {
+    for (i = debut; i <= fin; i++) {
+      somme += tab[i].freq;
+    }
+    somme /= fin - debut + 1;
+    printf("\nLa moyenne de %i à %i millisecondes est de %f BPM.\n", debut, fin, somme);
+  }
 }
 
 void afficherNbrLignes(int compteur) {
@@ -73,6 +103,22 @@ void afficherMaxMin(Bpm *tab, int compteur) {
       tpsMin = tab[i].temps;
     }
   }
-  printf("La valeur maximale est : %i à %i millisecondes.\n", max, tpsMax);
-  printf("La valeur minimale est : %i à %i millisecondes.\n", min, tpsMin);
+  printf("La valeur maximale est : %i BPM à %i millisecondes.\n", max, tpsMax);
+  printf("La valeur minimale est : %i BPM à %i millisecondes.\n", min, tpsMin);
 }
+/*
+void insertionsort(Bpm *tab, int compteur) {
+  int i, j, v;
+
+  for(i = 2; i < n; ++i) {
+    v = tab[i].freq;
+    j = i;
+    while(j > 0 && tab[j - 1].freq > v) {
+      tab[j].freq = tab[j - 1].freq;
+      j = j - 1;
+    }
+    l[j] = v;
+  }
+
+}
+*/

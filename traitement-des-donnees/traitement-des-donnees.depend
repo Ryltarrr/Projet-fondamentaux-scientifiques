@@ -8,14 +8,16 @@
 1510684054 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\main.c
 	"menu.h"
 
-1510697603 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\menu.c
+1510733334 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\menu.c
 	"menu.h"
 
 1510684014 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\menu.h
 	"actions.h"
 
-1510697106 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\actions.h
+1510736063 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\actions.h
 	"donnees.h"
+	<string.h>
+	<math.h>
 
 1510684074 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\donnees.h
 	<stdio.h>
