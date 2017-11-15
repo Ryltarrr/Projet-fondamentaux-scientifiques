@@ -8,7 +8,7 @@ int main() {
     tacheChoisie(choix, tab, compteur);
     choix = afficherMenu();
   }
-  printf("Au revoir et à bientôt !\n");
+  printf("Au revoir et \x85 bient\x93t !\n");
   return 0;
 }
 
