@@ -12,7 +12,7 @@ char btn_push;
  
 byte mainMenuPage = 1;
 byte mainMenuPageOld = 1;
-byte mainMenuTotal = 4;
+byte mainMenuTotal = 5;
  
 byte coeur[8] = {
   0b00000,
@@ -36,7 +36,7 @@ const int L8 = 37;
 const int L9 = 38;
 const int L10 = 39;
 
-const float pouls = 249;
+const float pouls = 60;
 
 float attente = 60/pouls*1000;
 
@@ -86,6 +86,9 @@ void loop()
             case 4:
               Chenille();
               break;
+            case 5:
+              Battement();
+              break;  
         }
  
           MainMenuDisplay();
@@ -121,6 +124,7 @@ digitalWrite(L7,HIGH);
 digitalWrite(L8,HIGH);
 digitalWrite(L9,HIGH);
 digitalWrite(L10,HIGH);
+digitalWrite(48,HIGH);
 delay(attente/2);
 digitalWrite(L1,LOW);
 digitalWrite(L2,LOW);
@@ -131,10 +135,10 @@ digitalWrite(L6,LOW);
 digitalWrite(L7,LOW);
 digitalWrite(L8,LOW);
 digitalWrite(L9,LOW);
-digitalWrite(48,HIGH);
+digitalWrite(48,LOW);
 digitalWrite(L10,LOW);
 delay(attente/2);
-digitalWrite(48,LOW);
+
   }
   else
   {
@@ -312,6 +316,87 @@ digitalWrite(L10,LOW);
 
   }
 }
+
+
+void Battement()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+   
+digitalWrite(L1,HIGH);
+digitalWrite(L2,HIGH);
+digitalWrite(L3,HIGH);
+digitalWrite(L4,HIGH);
+digitalWrite(L5,HIGH);
+digitalWrite(L6,HIGH);
+digitalWrite(L7,HIGH);
+digitalWrite(L8,HIGH);
+digitalWrite(L9,HIGH);
+digitalWrite(L10,HIGH);
+digitalWrite(48,HIGH);
+delay(150);
+digitalWrite(L1,LOW);
+digitalWrite(L2,LOW);
+digitalWrite(L3,LOW);
+digitalWrite(L4,LOW);
+digitalWrite(L5,LOW);
+digitalWrite(L6,LOW);
+digitalWrite(L7,LOW);
+digitalWrite(L8,LOW);
+digitalWrite(L9,LOW);
+digitalWrite(L10,LOW);
+delay(150);
+digitalWrite(L1,HIGH);
+digitalWrite(L2,HIGH);
+digitalWrite(L3,HIGH);
+digitalWrite(L4,HIGH);
+digitalWrite(L5,HIGH);
+digitalWrite(L6,HIGH);
+digitalWrite(L7,HIGH);
+digitalWrite(L8,HIGH);
+digitalWrite(L9,HIGH);
+digitalWrite(L10,HIGH);
+digitalWrite(48,LOW);
+delay(attente-300);
+digitalWrite(L1,LOW);
+digitalWrite(L2,LOW);
+digitalWrite(L3,LOW);
+digitalWrite(L4,LOW);
+digitalWrite(L5,LOW);
+digitalWrite(L6,LOW);
+digitalWrite(L7,LOW);
+digitalWrite(L8,LOW);
+digitalWrite(L9,LOW);
+digitalWrite(L10,LOW);
+
+
+
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+    digitalWrite(48,HIGH);
+delay(2000);
+    
+  }
+}
+delay(1000);
+}
+
+
  
 void MainMenuDisplay()
 {
@@ -331,6 +416,9 @@ void MainMenuDisplay()
         case 4:
           lcd.print("4. Chenille");
           break;
+        case 5:
+          lcd.print("5. Battement");
+          break;  
     }
 }
  
