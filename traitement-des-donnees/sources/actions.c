@@ -164,4 +164,3 @@ void insertionsort(Bpm *tab, int compteur) {
   }
 
 }
-
