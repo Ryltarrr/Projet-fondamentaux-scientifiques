@@ -1,5 +1,4 @@
 #include <LiquidCrystal.h>
-#include "param.h" 
 
 
 LiquidCrystal lcd(8,9,4,5,6,7);  
@@ -12,7 +11,7 @@ char btn_push;
  
 byte mainMenuPage = 1;
 byte mainMenuPageOld = 1;
-byte mainMenuTotal = 5;
+byte mainMenuTotal = 7;
  
 byte coeur[8] = {
   0b00000,
@@ -87,8 +86,16 @@ void loop()
               Chenille();
               break;
             case 5:
-              Battement();
+              ChenilleDeux();
               break;  
+            case 6:
+            Battement();
+            break;
+
+            case 7:
+            CoeurBrise();
+            break;
+           
         }
  
           MainMenuDisplay();
@@ -317,6 +324,68 @@ digitalWrite(L10,LOW);
   }
 }
 
+void ChenilleDeux()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+   
+
+delay(attente);
+digitalWrite(L1,LOW);
+digitalWrite(L3,HIGH);
+delay(attente);
+digitalWrite(L2,LOW);
+digitalWrite(L4,HIGH);
+delay(attente);
+digitalWrite(L3,LOW);
+digitalWrite(L5,HIGH);
+delay(attente);
+digitalWrite(L4,LOW);
+digitalWrite(L6,HIGH);
+delay(attente);
+digitalWrite(L5,LOW);
+digitalWrite(L7,HIGH);
+delay(attente);
+digitalWrite(L6,LOW);
+digitalWrite(L8,HIGH);
+delay(attente);
+digitalWrite(L7,LOW);
+digitalWrite(L9,HIGH);
+delay(attente);
+digitalWrite(L8,LOW);
+digitalWrite(L10,HIGH);
+delay(attente);
+digitalWrite(L9,LOW);
+digitalWrite(L1,HIGH);
+delay(attente);
+digitalWrite(L10,LOW);
+digitalWrite(L2,HIGH);
+
+
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+    digitalWrite(48,HIGH);
+delay(2000);
+    
+  }
+}
+delay(1000);
+}
 
 void Battement()
 { 
@@ -397,6 +466,60 @@ delay(1000);
 }
 
 
+
+void CoeurBrise()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+   
+digitalWrite(L1,HIGH);
+digitalWrite(L2,HIGH);
+digitalWrite(L3,HIGH);
+digitalWrite(L4,LOW);
+digitalWrite(L5,LOW);
+digitalWrite(L6,LOW);
+digitalWrite(L7,LOW);
+digitalWrite(L8,HIGH);
+digitalWrite(L9,HIGH);
+digitalWrite(L10,HIGH);
+
+delay(attente);
+digitalWrite(L1,LOW);
+digitalWrite(L2,LOW);
+digitalWrite(L3,HIGH);
+digitalWrite(L4,HIGH);
+digitalWrite(L5,HIGH);
+digitalWrite(L6,HIGH);
+digitalWrite(L7,HIGH);
+digitalWrite(L8,HIGH);
+digitalWrite(L9,LOW);
+digitalWrite(L10,LOW);
+delay(attente);
+
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+delay(1000);
+}
+
  
 void MainMenuDisplay()
 {
@@ -416,9 +539,15 @@ void MainMenuDisplay()
         case 4:
           lcd.print("4. Chenille");
           break;
-        case 5:
-          lcd.print("5. Battement");
+        case 5 :
+        lcd.print("5. ChenilleDeux");
+         break;   
+        case 6:
+          lcd.print("6. Battement");
           break;  
+        case 7 :
+        lcd.print("7. CoeurBrise");
+         break;
     }
 }
  
@@ -476,14 +605,3 @@ void WaitBtnRelease()
 {
     while( analogRead(keypad_pin) < 800){}
 }
-
-
-
-
-
-
-
-
-
-
-
