@@ -10,7 +10,8 @@ void setup() {
   // change the number between brackets according to the used
   // COM port https://processing.org/reference/libraries/serial/Serial.html
   udSerial = new Serial(this, Serial.list()[0], 19200);
-  output = createWriter ("Battements.csv");
+  output = createWriter ("../../traitement-des-donnees/Battements.csv");
+  output.print("000;000");
 }
 
 void draw() {

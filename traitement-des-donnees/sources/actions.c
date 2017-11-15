@@ -1,5 +1,7 @@
-#include "actions.h"
+#include "../headers/actions.h"
 
+// affiche les valeurs du fichier CSV
+// ligne par ligne
 void afficherDonneesOrdreCSV(Bpm *tab, int compteur) {
   int i;
   printf("Donnees contenue dans le fichier CSV : \n");
@@ -8,6 +10,7 @@ void afficherDonneesOrdreCSV(Bpm *tab, int compteur) {
   }
 }
 
+// affiche le pouls selon le temps croissant
 void afficherDonneesTempsCrois(Bpm *tab, int compteur) {
   int i;
   printf("Valeur du pouls dans le temps croissant :\n");
@@ -16,6 +19,7 @@ void afficherDonneesTempsCrois(Bpm *tab, int compteur) {
   }
 }
 
+// affiche le pouls selon le temps decroissant
 void afficherDonneesTempsDecrois(Bpm *tab, int compteur) {
   int i, j = 0;
   Bpm reversedTab[NBR_MAX_VALEURS];
@@ -30,6 +34,7 @@ void afficherDonneesTempsDecrois(Bpm *tab, int compteur) {
   }
 }
 
+// afficher les valeurs du pouls de maniere croissante
 void afficherDonneesPoulsCrois(Bpm *tab, int compteur) {
   Bpm tabCpy[NBR_MAX_VALEURS];
   int i;
@@ -43,6 +48,7 @@ void afficherDonneesPoulsCrois(Bpm *tab, int compteur) {
   }
 }
 
+// affiche les valeurs du pouls de maniere decroissante
 void afficherDonneesPoulsDecrois(Bpm *tab, int compteur) {
   Bpm tabCpy[NBR_MAX_VALEURS];
   Bpm reversedTab[NBR_MAX_VALEURS];
@@ -64,6 +70,7 @@ void afficherDonneesPoulsDecrois(Bpm *tab, int compteur) {
   }
 }
 
+// affiche le pouls pour une valeur de temps demande par l'utilisateur
 void afficherPoulsTempsDonne(Bpm *tab, int compteur) {
   int i, tps, trouve = 0;
   printf("Saisissez une valeur de temps pour conna\x8Ctre le pouls correspondant : ");
@@ -79,6 +86,8 @@ void afficherPoulsTempsDonne(Bpm *tab, int compteur) {
   }
 }
 
+// afficher la moyenne du pouls pour une plage de temps
+// l'utilisateur donne la valeur de temps de depart et de fin
 void afficherMoyPoulsPlageTemps(Bpm *tab, int compteur) {
   int i, debut, fin, dChange = 0, fChange = 0;
   float somme = 0.0;
@@ -113,10 +122,13 @@ void afficherMoyPoulsPlageTemps(Bpm *tab, int compteur) {
   }
 }
 
+// affiche le nombre de lignes donnees dans le fichier CSV
 void afficherNbrLignes(int compteur) {
   printf("Il y a %i lignes de donnees dans le fichier CSV.\n", compteur-1);
 }
 
+// affiche les valeur max et min du pouls
+// dans le fichier CSV
 void afficherMaxMin(Bpm *tab, int compteur) {
   int i, max = -1, min = 220, tpsMax, tpsMin;
   for (i = 1; i < compteur; i ++) {
@@ -133,6 +145,8 @@ void afficherMaxMin(Bpm *tab, int compteur) {
   printf("La valeur minimale est : %i BPM \x85 %i ms.\n", min, tpsMin);
 }
 
+// fonction de tri par insertion pour trier les valeurs
+// du pouls par ordre croissant et decroissant
 void insertionsort(Bpm *tab, int compteur) {
   int i, j, vFreq, vTemps;
 

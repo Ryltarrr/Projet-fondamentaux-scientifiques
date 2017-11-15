@@ -2,6 +2,8 @@
 #include <string.h>
 #include <math.h>
 
+// prototypes des differentes actions
+// possible sur les donnees enregistrees
 void afficherDonneesOrdreCSV(Bpm *tab, int compteur);
 void afficherDonneesTempsCrois(Bpm *tab, int compteur);
 void afficherDonneesTempsDecrois(Bpm *tab, int compteur);

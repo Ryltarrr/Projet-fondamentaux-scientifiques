@@ -1,5 +1,6 @@
-#include "menu.h"
+#include "../headers/menu.h"
 
+// affiche un menu qui propose un choix d'action à l'utilisateur
 int afficherMenu () {
   int choix = -1;
   printf("\nMenu :\nSaisissez une tache \x85 effectuer.\n");
@@ -22,6 +23,7 @@ int afficherMenu () {
   return choix;
 }
 
+// declenche un action selon le choix de l'utilisateur
 void tacheChoisie(int choix, Bpm *tab, int compteur) {
   switch (choix) {
   case 1:
