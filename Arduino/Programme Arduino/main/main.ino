@@ -2,11 +2,16 @@
 
 
 LiquidCrystal lcd(8,9,4,5,6,7);  
+
+unsigned long time;
  
 int keypad_pin = A0;
 int keypad_value = 0;
 int keypad_value_old = 0;
- 
+int n;
+
+long int pulse;
+
 char btn_push;
  
 byte mainMenuPage = 1;
@@ -35,8 +40,7 @@ const int L8 = 37;
 const int L9 = 38;
 const int L10 = 39;
 
-const float pouls = 60;
-
+float pouls;
 float attente = 60/pouls*1000;
 
 void setup() {
@@ -56,6 +60,37 @@ pinMode(L10,OUTPUT);
     lcd.createChar(0, coeur);
     MainMenuDisplay();
     delay(1000);
+
+  n=0;
+  pulse=0;
+  pouls=0;
+  Serial.begin(9600);
+
+  Serial.println("Veuillez patienter");
+
+  time = millis();
+
+  //préchauffage pour que les résultats soit plus juste
+  while((millis()-time)<5000){
+    analogRead(0);
+  }
+
+  time = millis();
+
+  //on affiche au moniteur série pendant 5 secondes
+  while((millis()-time)< 10000){
+    if ((millis()-time)%100 == 0)
+      //calcule de la moyenne du pouls partie 1
+      pulse=pulse+(((1000.0*60.0)/(analogRead(0)))-100);
+      n=n+1;
+      //sortie sur port série pour le processing
+      Serial.print(millis()-time);
+      Serial.print(';');
+      Serial.println(((1000.0*60.0)/(analogRead(0)))-100);
+   
+  }
+  //attribution à la variable pouls la moyenne du pouls
+ pouls = pulse / n;
 
 }
 
