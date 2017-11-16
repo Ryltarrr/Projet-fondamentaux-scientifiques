@@ -23,3 +23,24 @@
 	<stdio.h>
 	<stdlib.h>
 
+1510750727 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\sources\donnees.c
+	"../headers/donnees.h"
+
+1510750727 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\headers\donnees.h
+	<stdio.h>
+	<stdlib.h>
+
+1510750727 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\sources\main.c
+	"../headers/menu.h"
+
+1510750727 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\headers\menu.h
+	"actions.h"
+
+1510750727 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\headers\actions.h
+	"donnees.h"
+	<string.h>
+	<math.h>
+
+1510750727 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\sources\menu.c
+	"../headers/menu.h"
+
