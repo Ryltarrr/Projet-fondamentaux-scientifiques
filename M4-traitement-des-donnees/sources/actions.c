@@ -6,7 +6,7 @@ void afficherDonneesOrdreCSV(Bpm *tab, int compteur) {
   int i;
   printf("Donnees contenue dans le fichier CSV : \n");
   for (i = 1; i < compteur; i++) {
-    printf("%d;%d\n", tab[i].temps, tab[i].freq);
+    printf("%d;%.2f\n", tab[i].temps, tab[i].freq);
   }
 }
 
@@ -15,7 +15,7 @@ void afficherDonneesTempsCrois(Bpm *tab, int compteur) {
   int i;
   printf("Valeur du pouls dans le temps croissant :\n");
   for (i = 1; i < compteur; i++) {
-    printf("%d BPM \x85 %d ms\n", tab[i].freq, tab[i].temps);
+    printf("%.2f BPM \x85 %d ms\n", tab[i].freq, tab[i].temps);
   }
 }
 
@@ -30,7 +30,7 @@ void afficherDonneesTempsDecrois(Bpm *tab, int compteur) {
     j++;
   }
   for (i = 0; i < compteur-1; i++) {
-    printf("%d BPM \x85 %d ms\n", reversedTab[i].freq, reversedTab[i].temps);
+    printf("%.2f BPM \x85 %d ms\n", reversedTab[i].freq, reversedTab[i].temps);
   }
 }
 
@@ -44,7 +44,7 @@ void afficherDonneesPoulsCrois(Bpm *tab, int compteur) {
   }
   insertionsort(tabCpy, compteur);
   for (i = 1; i < compteur; i++) {
-    printf("%d BPM \x85 %d ms.\n", tabCpy[i].freq, tabCpy[i].temps);
+    printf("%.2f BPM \x85 %d ms.\n", tabCpy[i].freq, tabCpy[i].temps);
   }
 }
 
@@ -66,7 +66,7 @@ void afficherDonneesPoulsDecrois(Bpm *tab, int compteur) {
     j++;
   }
   for (i = 0; i < compteur-1; i++) {
-    printf("%d BPM \x85 %d ms.\n", reversedTab[i].freq, reversedTab[i].temps);
+    printf("%.2f BPM \x85 %d ms.\n", reversedTab[i].freq, reversedTab[i].temps);
   }
 }
 
@@ -77,7 +77,7 @@ void afficherPoulsTempsDonne(Bpm *tab, int compteur) {
   scanf("%i", &tps);
   for (i = 1; i < compteur; i++) {
     if (tab[i].temps == tps) {
-      printf("Pour le temps de %i ms, le pouls est %i BPM.\n", tps, tab[i].freq);
+      printf("Pour le temps de %d ms, le pouls est %f BPM.\n", tps, tab[i].freq);
       trouve = 1;
     }
   }
@@ -118,7 +118,7 @@ void afficherMoyPoulsPlageTemps(Bpm *tab, int compteur) {
       somme += tab[i].freq;
     }
     somme /= fin - debut + 1;
-    printf("\nLa moyenne de la valeur %i \x85 la valeur %i est de %f BPM.\n", debut, fin, somme);
+    printf("\nLa moyenne de la valeur %d \x85 la valeur %d est de %.2f BPM.\n", debut, fin, somme);
   }
 }
 
@@ -130,7 +130,8 @@ void afficherNbrLignes(int compteur) {
 // affiche les valeur max et min du pouls
 // dans le fichier CSV
 void afficherMaxMin(Bpm *tab, int compteur) {
-  int i, max = -1, min = 220, tpsMax, tpsMin;
+  int i, tpsMax, tpsMin;
+  float max = -1.0, min = 220.0;
   for (i = 1; i < compteur; i ++) {
     if (tab[i].freq > max) {
       max = tab[i].freq;
@@ -141,14 +142,15 @@ void afficherMaxMin(Bpm *tab, int compteur) {
       tpsMin = tab[i].temps;
     }
   }
-  printf("La valeur maximale est : %i BPM \x85 %i ms.\n", max, tpsMax);
-  printf("La valeur minimale est : %i BPM \x85 %i ms.\n", min, tpsMin);
+  printf("La valeur maximale est : %.2f BPM \x85 %d ms.\n", max, tpsMax);
+  printf("La valeur minimale est : %.2f BPM \x85 %d ms.\n", min, tpsMin);
 }
 
 // fonction de tri par insertion pour trier les valeurs
 // du pouls par ordre croissant et decroissant
 void insertionsort(Bpm *tab, int compteur) {
-  int i, j, vFreq, vTemps;
+  int i, j, vTemps;
+  float vFreq;
 
   for(i = 2; i < compteur; ++i) {
     vFreq = tab[i].freq;

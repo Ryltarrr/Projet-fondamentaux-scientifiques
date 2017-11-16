@@ -16,7 +16,7 @@ int lectureEcritureCSV(Bpm *tab) {
   // tant que l'on peut lire une ligne dans le fichier
   // on enregistre la ligne et on la formate
   while(fgets(chaine, NBR_MAX_VALEURS, fichier)) {
-    sscanf(chaine, "%d;%d", &tab[compteur].temps, &tab[compteur].freq);
+    sscanf(chaine, "%d;%f", &tab[compteur].temps, &tab[compteur].freq);
     compteur++;
   }
   // retourne le nombre de ligne du fichier
