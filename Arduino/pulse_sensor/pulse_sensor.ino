@@ -2,7 +2,6 @@ unsigned long time;
 long int pulse;
 int n;
 int pouls;
-int valeur;
 
 
 void setup() {
