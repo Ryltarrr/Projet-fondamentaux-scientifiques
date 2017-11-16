@@ -42,7 +42,8 @@ void afficherDonneesPoulsCrois(Bpm *tab, int compteur) {
     tabCpy[i].temps = tab[i].temps;
     tabCpy[i].freq = tab[i].freq;
   }
-  insertionsort(tabCpy, compteur);
+  quicksort(tabCpy, compteur);
+  //insertionsort(tabCpy, compteur);
   for (i = 1; i < compteur; i++) {
     printf("%.2f BPM \x85 %d ms.\n", tabCpy[i].freq, tabCpy[i].temps);
   }
@@ -58,7 +59,8 @@ void afficherDonneesPoulsDecrois(Bpm *tab, int compteur) {
     tabCpy[i].temps = tab[i].temps;
     tabCpy[i].freq = tab[i].freq;
   }
-  insertionsort(tabCpy, compteur);
+  quicksort(tabCpy, compteur);
+  //insertionsort(tabCpy, compteur);
 
   for (i = compteur-1; i > 0; i--) {
     reversedTab[j].temps = tabCpy[i].temps;
@@ -165,4 +167,57 @@ void insertionsort(Bpm *tab, int compteur) {
     tab[j].temps = vTemps;
   }
 
+}
+
+
+// différentes fonction permettant le
+// fonctionnement du tri de type quicksort
+void swapF(float *a, float *b) {
+  float c = *a;
+
+  *a = *b;
+  *b = c;
+}
+
+void swapI(int *a, int *b) {
+  int c = *a;
+
+  *a = *b;
+  *b = c;
+}
+
+int partition(Bpm *tab, int lo, int hi) {
+  int i, j;
+  float pivot;
+
+  pivot = tab[hi].freq;
+
+  i = lo - 1;
+  for(j = lo; j < hi; ++j) {
+    if(tab[j].freq < pivot) {
+      i++;
+      swapF(&tab[i].freq, &tab[j].freq);
+      swapI(&tab[i].temps, &tab[j].temps);
+    }
+  }
+
+  if(tab[hi].freq < tab[i + 1].freq) {
+    swapF(&tab[hi].freq, &tab[i + 1].freq);
+    swapI(&tab[hi].temps, &tab[i + 1].temps);
+  }
+
+  return i + 1;
+}
+
+void quicksort0(Bpm *tab, int lo, int hi) {
+  int p;
+  if(lo < hi) {
+    p = partition(tab, lo, hi);
+    quicksort0(tab, lo, p - 1);
+    quicksort0(tab, p + 1, hi);
+  }
+}
+
+void quicksort(Bpm *tab, int n) {
+  quicksort0(tab, 1, n - 1);
 }
