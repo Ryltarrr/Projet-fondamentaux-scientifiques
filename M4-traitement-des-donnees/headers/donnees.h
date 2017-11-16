@@ -8,7 +8,7 @@
 // recu dans le fichier CSV
 typedef struct {
   int temps;
-  int freq;
+  float freq;
 } Bpm;
 
 // prototype de la fonction de lecture

@@ -26,7 +26,7 @@
 1510750727 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\sources\donnees.c
 	"../headers/donnees.h"
 
-1510750727 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\headers\donnees.h
+1510822556 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\headers\donnees.h
 	<stdio.h>
 	<stdlib.h>
 
@@ -42,5 +42,32 @@
 	<math.h>
 
 1510750727 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\sources\menu.c
+	"../headers/menu.h"
+
+1510822528 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\traitement-des-donnees\sources\actions.c
+	"../headers/actions.h"
+
+1510824290 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\m4-traitement-des-donnees\sources\actions.c
+	"../headers/actions.h"
+
+1510750727 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\m4-traitement-des-donnees\headers\actions.h
+	"donnees.h"
+	<string.h>
+	<math.h>
+
+1510822556 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\m4-traitement-des-donnees\headers\donnees.h
+	<stdio.h>
+	<stdlib.h>
+
+1510823963 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\m4-traitement-des-donnees\sources\donnees.c
+	"../headers/donnees.h"
+
+1510750727 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\m4-traitement-des-donnees\sources\main.c
+	"../headers/menu.h"
+
+1510750727 d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\m4-traitement-des-donnees\headers\menu.h
+	"actions.h"
+
+1510825388 source:d:\onedrive - association cesi viacesi mail\projet\fondamentaux scientifiques\repository\projet-fondamentaux-scientifiques\m4-traitement-des-donnees\sources\menu.c
 	"../headers/menu.h"
 
