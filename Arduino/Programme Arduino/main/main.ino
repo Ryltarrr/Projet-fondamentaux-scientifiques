@@ -11,7 +11,7 @@ char btn_push;
  
 byte mainMenuPage = 1;
 byte mainMenuPageOld = 1;
-byte mainMenuTotal = 7;
+byte mainMenuTotal = 17;
  
 byte coeur[8] = {
   0b00000,
@@ -74,27 +74,72 @@ void loop()
         switch (mainMenuPage)
         {
             case 1:
-              CoeurAllume();
-              break;
+            CoeurAllume();
+            break;
             case 2:
-              UnsurDeux();
-              break;
+            UnsurDeux();
+            break;
             case 3:
-              UnsurTrois();
-              break;
+            UnsurTrois();
+            break;
             case 4:
-              Chenille();
-              break;
+            Chenille();
+            break;
             case 5:
-              ChenilleDeux();
-              break;  
+            ChenilleDeux();
+            break;  
             case 6:
             Battement();
             break;
-
+            
             case 7:
             CoeurBrise();
             break;
+            
+            case 8:
+            LED1();
+            break;
+            
+            case 9:
+            LED2();
+            break;
+            
+            case 10:
+            LED3();
+            break;
+            
+            case 11:
+            LED4();
+            break;
+            
+            case 12:
+            LED5();
+            break;  
+            
+            case 13:
+            LED6();
+            break;
+            
+            case 14:
+            LED7();
+            break;
+            
+            case 15:
+            LED8();
+            break;  
+            
+            case 16:
+            LED9();
+            break;
+            
+            case 17:
+            LED10();
+            break;
+
+
+            
+
+        
            
         }
  
@@ -102,7 +147,7 @@ void loop()
           WaitBtnRelease();
     }
    
- 
+
  
     delay(10);
  
@@ -519,6 +564,326 @@ delay(2000);
 }
 delay(1000);
 }
+void  LED1()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L1,HIGH);
+delay(attente);
+digitalWrite(L1,LOW);
+delay(attente);
+
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+}
+
+  void  LED2()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L2,HIGH);
+delay(attente);
+digitalWrite(L2,LOW);
+delay(attente);
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+}
+  void  LED3()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L3,HIGH);
+delay(attente);
+digitalWrite(L3,LOW);
+delay(attente);
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+}
+void  LED4()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L4,HIGH);
+delay(attente);
+digitalWrite(L4,LOW);
+delay(attente);
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+}
+  void  LED5()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L5,HIGH);
+delay(attente);
+digitalWrite(L5,LOW);
+delay(attente);
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+}
+void  LED6()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L6,HIGH);
+delay(attente);
+digitalWrite(L6,LOW);
+delay(attente);
+
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+}
+  void  LED7()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L7,HIGH);
+delay(attente);
+digitalWrite(L7,LOW);
+delay(attente);
+  }  
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+}
+void  LED8()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L8,HIGH);
+delay(attente);
+digitalWrite(L8,LOW);
+delay(attente);
+  }
+  }
+}
+  void  LED9()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L9,HIGH);
+delay(attente);
+digitalWrite(L9,LOW);
+delay(attente);
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+}
+void  LED10()
+{ 
+  while(pouls!=1) { 
+  if (pouls<250){ 
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Votre pouls est");
+    lcd.setCursor(4,1);
+    lcd.print(pouls);
+    lcd.setCursor(7,1);
+    lcd.print("bpm");
+    lcd.setCursor(10,1);
+    lcd.write(byte(0));
+
+   
+digitalWrite(L10,HIGH);
+delay(attente);
+digitalWrite(L10,LOW);
+delay(attente);
+  }
+  else
+  {
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Mettez le doigt");
+    lcd.setCursor(1,1);
+    lcd.print("dans la pince");
+delay(2000);
+    
+  }
+}
+
+
+}
+
+
+
+
+
 
  
 void MainMenuDisplay()
@@ -548,6 +913,38 @@ void MainMenuDisplay()
         case 7 :
         lcd.print("7. CoeurBrise");
          break;
+          case 8:
+          lcd.print("8.LED1");
+          break;
+        case 9:
+          lcd.print("9. LED2");
+          break;
+        case 10:
+          lcd.print("10. LED3");
+          break;
+        case 11:
+          lcd.print("11. LED4");
+          break;
+        case 12 :
+        lcd.print("12. LED5");
+         break;   
+        case 13:
+          lcd.print("13. LED6");
+          break;  
+        case 14:
+        lcd.print("14. LED7");
+         break;
+
+        case 15:
+          lcd.print("15. LED8");
+         break;   
+        case 16:
+          lcd.print("16. LED9");
+          break;  
+        case 17 :
+        lcd.print("17. LED10");
+         break;
+         
     }
 }
  
