@@ -177,7 +177,7 @@ void afficherMediane(Bpm *tab, int compteur) {
     tabCpy[i].freq = tab[i].freq;
   }
   quicksort(tabCpy, compteur);
-  printf("La mediane du pouls est : %f BPM, \x85 %d millisecondes.\n", tabCpy[compteur/2].freq, tabCpy[compteur/2].temps);
+  printf("La mediane du pouls est : %.2f BPM, \x85 %d millisecondes.\n", tabCpy[compteur/2].freq, tabCpy[compteur/2].temps);
 }
 
 
@@ -186,14 +186,12 @@ void afficherMediane(Bpm *tab, int compteur) {
 // fonctionnement du tri de type quicksort
 void swapF(float *a, float *b) {
   float c = *a;
-
   *a = *b;
   *b = c;
 }
 
 void swapI(int *a, int *b) {
   int c = *a;
-
   *a = *b;
   *b = c;
 }
