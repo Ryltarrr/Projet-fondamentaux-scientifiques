@@ -13,7 +13,6 @@ int keypad_pin = A0; //entrée analogique pour le clavier
 int keypad_value = 0;
 int keypad_value_old = 0;
 int n;
-int nc = 0;
 
 long int pulse;
 
@@ -125,8 +124,7 @@ pinMode(L10,OUTPUT);
   }
   //attribution à la variable pouls la moyenne du pouls
   pouls = pulse / n;
-  attente = 60/pouls*1000;
-  nc=1;
+  attente = (60/pouls)*1000;
 
 lcd.begin(16,2);  //Initialize a 2x16 type LCD
 lcd.createChar(0, coeur);
