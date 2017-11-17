@@ -136,35 +136,27 @@ void loop()
             case 6:
             Battement();
             break;
-            
             case 7:
             CoeurBrise();
             break;
-            
             case 8:
             LED1();
             break;
-            
             case 9:
             LED2();
             break;
-            
             case 10:
             LED3();
-            break;
-            
+            break; 
             case 11:
             LED4();
             break;
-            
             case 12:
             LED5();
             break;  
-            
             case 13:
             LED6();
             break;
-            
             case 14:
             LED7();
             break;
@@ -197,7 +189,7 @@ void loop()
     delay(10);
  
 
-void CoeurAllume() //programme Coeur allumé
+void CoeurAllume() //fonction Coeur allumé
 { 
   
   while(pouls!=1) { 
