@@ -197,6 +197,7 @@ void loop()
     delay(10);
  
 
+void CoeurAllume() //programme Coeur allumé
 { 
   
   while(pouls!=1) { 
