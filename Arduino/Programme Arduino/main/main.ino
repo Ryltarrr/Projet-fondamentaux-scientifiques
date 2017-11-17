@@ -1,9 +1,9 @@
-#include <LiquidCrystal.h>
+#include <LiquidCrystal.h> 
 
 
-LiquidCrystal lcd(8,9,4,5,6,7);  
+LiquidCrystal lcd(8,9,4,5,6,7); //entrée pour l'écran LCD
  
-int keypad_pin = A0;
+int keypad_pin = A0; //entrée analogique pour le clavier
 int keypad_value = 0;
 int keypad_value_old = 0;
  
@@ -11,9 +11,9 @@ char btn_push;
  
 byte mainMenuPage = 1;
 byte mainMenuPageOld = 1;
-byte mainMenuTotal = 17;
+byte mainMenuTotal = 17; // nombre de Menu
  
-byte coeur[8] = {
+byte coeur[8] = {  // Caractère personalisé d'un coeur
   0b00000,
   0b01010,
   0b11111,
@@ -24,38 +24,38 @@ byte coeur[8] = {
   0b00000
 };
 
-const int L1 = 30;
-const int L2 = 31;
-const int L3 = 32;
-const int L4 = 33;
-const int L5 = 34;
-const int L6 = 35;
-const int L7 = 36;
-const int L8 = 37;
-const int L9 = 38;
-const int L10 = 39;
+const int L1 = 30;   //le port 30 de la carte arduino est desormais L1
+const int L2 = 31;   //le port 31 de la carte arduino est desormais L2
+const int L3 = 32;   //le port 32 de la carte arduino est desormais L3 
+const int L4 = 33;   //le port 33 de la carte arduino est desormais L4 
+const int L5 = 34;   //le port 34 de la carte arduino est desormais L5 
+const int L6 = 35;   //le port 35 de la carte arduino est desormais L6 
+const int L7 = 36;   //le port 36 de la carte arduino est desormais L7 
+const int L8 = 37;   //le port 37 de la carte arduino est desormais L8 
+const int L9 = 38;   //le port 38 de la carte arduino est desormais L9 
+const int L10 = 39;  //le port 39 de la carte arduino est desormais L10 
 
-const float pouls = 60;
+const float pouls = 60;  //le pouls est égale a 60
 
-float attente = 60/pouls*1000;
+float attente = 60/pouls*1000; //relation du pouls
 
 void setup() {
 
-pinMode(L1,OUTPUT);
-pinMode(L2,OUTPUT);
-pinMode(L3,OUTPUT);
-pinMode(L4,OUTPUT);
-pinMode(L5,OUTPUT);
-pinMode(L6,OUTPUT);
-pinMode(L7,OUTPUT);
-pinMode(L8,OUTPUT);
-pinMode(L9,OUTPUT);
-pinMode(L10,OUTPUT);
+pinMode(L1,OUTPUT);   //L1 est une sortie
+pinMode(L2,OUTPUT);   //L2 est une sortie
+pinMode(L3,OUTPUT);   //L3 est une sortie
+pinMode(L4,OUTPUT);   //L4 est une sortie
+pinMode(L5,OUTPUT);   //L5 est une sortie
+pinMode(L6,OUTPUT);   //L6 est une sortie
+pinMode(L7,OUTPUT);   //L7 est une sortie
+pinMode(L8,OUTPUT);   //L8 est une sortie
+pinMode(L9,OUTPUT);   //L9 est une sortie
+pinMode(L10,OUTPUT);  //L10 est une sortie
 
-    lcd.begin(16,2);  //Initialize a 2x16 type LCD
-    lcd.createChar(0, coeur);
+    lcd.begin(16,2);  //LCD est composé de 2 lignes de 16 caractères
+    lcd.createChar(0, coeur); //Affichage du coeur dans LCD
     MainMenuDisplay();
-    delay(1000);
+    delay(1000);//pause de 1s
 
 }
 
@@ -68,10 +68,10 @@ void loop()
    
     MainMenuBtn();
    
-    if(btn_push == 'S')//enter selected menu
+    if(btn_push == 'S')//sélection menu
     {
         WaitBtnRelease();
-        switch (mainMenuPage)
+        switch (mainMenuPage) //différent menu
         {
             case 1:
             CoeurAllume();
@@ -151,8 +151,8 @@ void loop()
  
     delay(10);
  
-}//--------------- End of loop() loop ---------------------
-void CoeurAllume()
+}
+void CoeurAllume() // Premier menu pour le coeur allumé
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -166,7 +166,7 @@ void CoeurAllume()
     lcd.setCursor(10,1);
     lcd.write(byte(0));
    
-digitalWrite(L1,HIGH);
+digitalWrite(L1,HIGH);  //Led allumé
 digitalWrite(L2,HIGH);
 digitalWrite(L3,HIGH);
 digitalWrite(L4,HIGH);
@@ -178,7 +178,7 @@ digitalWrite(L9,HIGH);
 digitalWrite(L10,HIGH);
 digitalWrite(48,HIGH);
 delay(attente/2);
-digitalWrite(L1,LOW);
+digitalWrite(L1,LOW); //Led éteinte
 digitalWrite(L2,LOW);
 digitalWrite(L3,LOW);
 digitalWrite(L4,LOW);
@@ -206,7 +206,7 @@ delay(2000);
 delay(1000);
 }
 
-void UnsurDeux()
+void UnsurDeux()  //deuxieme  menu pour les Led allumé UnsurDeux
 {  
     lcd.clear();
     lcd.setCursor(0,0);
@@ -263,13 +263,9 @@ digitalWrite(L10,LOW);
    
 }
   
-    while(ReadKeypad()!= 'L')
-    {
-        //Insert Task for Menu B here
-       
-    }
+
 }
-void UnsurTrois()
+void UnsurTrois() //troisieme menu avec Led UN sur TROIS
 {  
     lcd.clear();
     lcd.setCursor(0,0);
@@ -316,13 +312,11 @@ digitalWrite(L2,LOW);
 
   }
    
-    while(ReadKeypad()!= 'L')
-    {
-        //Insert Task for Menu C here
+
        
-    }
+    
 }
-void Chenille()
+void Chenille() //4eme menu avec Led chenille
 {  
         lcd.clear();
     lcd.setCursor(0,0);
@@ -369,7 +363,7 @@ digitalWrite(L10,LOW);
   }
 }
 
-void ChenilleDeux()
+void ChenilleDeux() //5eme menu avec Led Deux chenille
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -432,7 +426,7 @@ delay(2000);
 delay(1000);
 }
 
-void Battement()
+void Battement() // 6eme Menu avec Led en forme de battement
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -507,12 +501,13 @@ delay(2000);
     
   }
 }
-delay(1000);
+
+
 }
 
 
 
-void CoeurBrise()
+void CoeurBrise() // 7eme menu avec led en forme coeur brisé
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -562,9 +557,8 @@ delay(2000);
     
   }
 }
-delay(1000);
 }
-void  LED1()
+void  LED1() //8eme Menu avec la led 1
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -598,7 +592,7 @@ delay(2000);
 }
 }
 
-  void  LED2()
+  void  LED2() //9eme Menu avec la led 2
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -630,7 +624,7 @@ delay(2000);
   }
 }
 }
-  void  LED3()
+  void  LED3() //10eme Menu avec la led 3
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -662,7 +656,7 @@ delay(2000);
   }
 }
 }
-void  LED4()
+void  LED4()  //11 eme Menu avec la led 4
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -694,7 +688,7 @@ delay(2000);
   }
 }
 }
-  void  LED5()
+  void  LED5() // 12eme Menu avec la led 5
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -726,7 +720,7 @@ delay(2000);
   }
 }
 }
-void  LED6()
+void  LED6() //13eme Menu avec la led 6
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -759,8 +753,8 @@ delay(2000);
   }
 }
 }
-  void  LED7()
-{ 
+  void  LED7() //14eme Menu avec la led 7
+{  
   while(pouls!=1) { 
   if (pouls<250){ 
     lcd.clear();
@@ -791,7 +785,7 @@ delay(2000);
   }
 }
 }
-void  LED8()
+void  LED8() //15eme Menu avec la led 8
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -813,8 +807,8 @@ delay(attente);
   }
   }
 }
-  void  LED9()
-{ 
+  void  LED9() //16eme Menu avec la led 9
+  { 
   while(pouls!=1) { 
   if (pouls<250){ 
     lcd.clear();
@@ -845,9 +839,8 @@ delay(2000);
   }
 }
 }
-void  LED10()
-{ 
-  while(pouls!=1) { 
+void  LED10() //17eme Menu avec la led 10
+{  while(pouls!=1) { 
   if (pouls<250){ 
     lcd.clear();
     lcd.setCursor(0,0);
@@ -876,8 +869,6 @@ delay(2000);
     
   }
 }
-
-
 }
 
 
@@ -984,17 +975,17 @@ char ReadKeypad()
   keypad_value = analogRead(keypad_pin);
  
   if(keypad_value < 100)
-    return 'R';
+    return 'R';  //  droite
   else if(keypad_value < 200)
-    return 'U';
+    return 'U'; // vers le haut
   else if(keypad_value < 500)
-    return 'D';
+    return 'D'; //vers le bas
   else if(keypad_value < 600)
-    return 'L';
+    return 'L'; // gauche
   else if(keypad_value < 800)
-    return 'S';
+    return 'S'; // selecte
   else
-    return 'N';
+    return 'N'; // return non
  
 }
  
