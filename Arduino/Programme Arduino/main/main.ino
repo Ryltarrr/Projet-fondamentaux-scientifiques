@@ -1,13 +1,10 @@
 #include <LiquidCrystal.h> 
 
-
-<<<<<<< HEAD
 LiquidCrystal lcd(8,9,4,5,6,7); //entrée pour l'écran LCD
-=======
-LiquidCrystal lcd(8,9,4,5,6,7);  
+
 
 unsigned long time;
->>>>>>> 756e0afe3f9937dbf6654a9335a3af49cf6e5fb5
+
  
 int keypad_pin = A0; //entrée analogique pour le clavier
 int keypad_value = 0;
@@ -44,7 +41,7 @@ const int L8 = 37;   //le port 37 de la carte arduino est desormais L8
 const int L9 = 38;   //le port 38 de la carte arduino est desormais L9 
 const int L10 = 39;  //le port 39 de la carte arduino est desormais L10 
 
-<<<<<<< HEAD
+
 const float pouls = 60;  //le pouls est égale a 60
 
 float attente = 60/pouls*1000; //relation du pouls
@@ -134,7 +131,6 @@ delay(1000);
 
 
 
-
 void loop()
 {
     btn_push = ReadKeypad();
@@ -207,21 +203,13 @@ void loop()
             
             case 17:
             LED10();
-            break;
-
-
-            
-
-        
-           
+            break;           
         }
  
           MainMenuDisplay();
           WaitBtnRelease();
     }
    
-
- 
     delay(10);
  
 }
