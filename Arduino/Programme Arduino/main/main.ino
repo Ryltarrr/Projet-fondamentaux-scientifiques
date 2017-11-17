@@ -1,11 +1,11 @@
-#include <LiquidCrystal.h>
+#include <LiquidCrystal.h> //entrée pour l'écran LCD
 
 
 LiquidCrystal lcd(8,9,4,5,6,7);  
 
 unsigned long time;
  
-int keypad_pin = A0;
+int keypad_pin = A0; //entrée analogique pour le clavier
 int keypad_value = 0;
 int keypad_value_old = 0;
 int n;
@@ -16,9 +16,9 @@ char btn_push;
  
 byte mainMenuPage = 1;
 byte mainMenuPageOld = 1;
-byte mainMenuTotal = 17;
+byte mainMenuTotal = 17;// nombre de Menu
  
-byte coeur[8] = {
+byte coeur[8] = { // Caractère personalisé d'un coeur
   0b00000,
   0b01010,
   0b11111,
@@ -29,34 +29,35 @@ byte coeur[8] = {
   0b00000
 };
 
-const int L1 = 30;
-const int L2 = 31;
-const int L3 = 32;
-const int L4 = 33;
-const int L5 = 34;
-const int L6 = 35;
-const int L7 = 36;
-const int L8 = 37;
-const int L9 = 38;
-const int L10 = 39;
+const int L1 = 30;   //le port 30 de la carte arduino est desormais L1
+const int L2 = 31;   //le port 31 de la carte arduino est desormais L2
+const int L3 = 32;   //le port 32 de la carte arduino est desormais L3 
+const int L4 = 33;   //le port 33 de la carte arduino est desormais L4 
+const int L5 = 34;   //le port 34 de la carte arduino est desormais L5 
+const int L6 = 35;   //le port 35 de la carte arduino est desormais L6 
+const int L7 = 36;   //le port 36 de la carte arduino est desormais L7 
+const int L8 = 37;   //le port 37 de la carte arduino est desormais L8 
+const int L9 = 38;   //le port 38 de la carte arduino est desormais L9 
+const int L10 = 39;  //le port 39 de la carte arduino est desormais L10 
+
 
 float pouls;
 float attente;
 
 void setup() {
 
-pinMode(L1,OUTPUT);
-pinMode(L2,OUTPUT);
-pinMode(L3,OUTPUT);
-pinMode(L4,OUTPUT);
-pinMode(L5,OUTPUT);
-pinMode(L6,OUTPUT);
-pinMode(L7,OUTPUT);
-pinMode(L8,OUTPUT);
-pinMode(L9,OUTPUT);
-pinMode(L10,OUTPUT);
+pinMode(L1,OUTPUT);   //L1 est une sortie
+pinMode(L2,OUTPUT);   //L2 est une sortie
+pinMode(L3,OUTPUT);   //L3 est une sortie
+pinMode(L4,OUTPUT);   //L4 est une sortie
+pinMode(L5,OUTPUT);   //L5 est une sortie
+pinMode(L6,OUTPUT);   //L6 est une sortie
+pinMode(L7,OUTPUT);   //L7 est une sortie
+pinMode(L8,OUTPUT);   //L8 est une sortie
+pinMode(L9,OUTPUT);   //L9 est une sortie
+pinMode(L10,OUTPUT);  //L10 est une sortie
 
-    lcd.begin(16,2);
+    lcd.begin(16,2);  //LCD est composé de 2 lignes de 16 caractères
     lcd.clear();
     lcd.setCursor(0,0);
     lcd.print("Patientez ...");
@@ -70,18 +71,18 @@ pinMode(L10,OUTPUT);
   n=0;
   pulse=0;
   pouls=0;
-  Serial.begin(9600);
+  Serial.begin(9600); // l'écture de la console à 9600 baud
 
   time = millis();
 
-  //préchauffage pour que les résultats soit plus juste
+    //préchauffage pour que les résultats soit plus juste
   while((millis()-time)<5000){
-    analogRead(10);
+    analogRead(10); //Entrée analogique A10
   }
 
   time = millis();
 
-  //on affiche au moniteur série pendant 5 secondes
+     //on affiche au moniteur série pendant 5 secondes
   while((millis()-time)< 10000){
     if ((millis()-time)%100 == 0)
       //calcule de la moyenne du pouls partie 1
@@ -113,12 +114,11 @@ void loop()
    
     MainMenuBtn();
    
-    if(btn_push == 'S')//enter selected menu
-    {
+    if(btn_push == 'S')// entrée dans le menu
         WaitBtnRelease();
         switch (mainMenuPage)
         {
-            case 1:
+            case 1:    // diffenrent programme du menu
             CoeurAllume();
             break;
             case 2:
@@ -196,8 +196,7 @@ void loop()
  
     delay(10);
  
-}//--------------- End of loop() loop ---------------------
-void CoeurAllume()
+
 { 
   
   while(pouls!=1) { 
@@ -213,7 +212,7 @@ void CoeurAllume()
     lcd.write(byte(0));
    
 digitalWrite(L1,HIGH);
-digitalWrite(L2,HIGH);
+digitalWrite(L2,HIGH); // led allumé 
 digitalWrite(L3,HIGH);
 digitalWrite(L4,HIGH);
 digitalWrite(L5,HIGH);
@@ -224,7 +223,7 @@ digitalWrite(L9,HIGH);
 digitalWrite(L10,HIGH);
 digitalWrite(48,HIGH);
 delay(attente/2);
-digitalWrite(L1,LOW);
+digitalWrite(L1,LOW); // led eteinte
 digitalWrite(L2,LOW);
 digitalWrite(L3,LOW);
 digitalWrite(L4,LOW);
@@ -252,7 +251,7 @@ delay(2000);
 delay(1000);
 }
 
-void UnsurDeux()
+void UnsurDeux() // programme 2 
 {  
     lcd.clear();
     lcd.setCursor(0,0);
@@ -315,7 +314,7 @@ digitalWrite(L10,LOW);
        
     }
 }
-void UnsurTrois()
+void UnsurTrois() // 3eme programme
 {  
     lcd.clear();
     lcd.setCursor(0,0);
@@ -364,11 +363,11 @@ digitalWrite(L2,LOW);
    
     while(ReadKeypad()!= 'L')
     {
-        //Insert Task for Menu C here
+       
        
     }
 }
-void Chenille()
+void Chenille() // programme 4
 {  
         lcd.clear();
     lcd.setCursor(0,0);
@@ -415,7 +414,7 @@ digitalWrite(L10,LOW);
   }
 }
 
-void ChenilleDeux()
+void ChenilleDeux() // programme 5
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -478,7 +477,7 @@ delay(2000);
 delay(1000);
 }
 
-void Battement()
+void Battement()  // programme 6
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -558,7 +557,7 @@ delay(1000);
 
 
 
-void CoeurBrise()
+void CoeurBrise() // programme 7
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -608,9 +607,10 @@ delay(2000);
     
   }
 }
+}
 delay(1000);
 }
-void  LED1()
+void  LED1() // programme 8
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -644,7 +644,7 @@ delay(2000);
 }
 }
 
-  void  LED2()
+  void  LED2() // programme 9
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -676,7 +676,7 @@ delay(2000);
   }
 }
 }
-  void  LED3()
+  void  LED3() // programme 10
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -708,7 +708,7 @@ delay(2000);
   }
 }
 }
-void  LED4()
+void  LED4() // programme 11
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -740,7 +740,7 @@ delay(2000);
   }
 }
 }
-  void  LED5()
+  void  LED5() // programme 12
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -772,7 +772,7 @@ delay(2000);
   }
 }
 }
-void  LED6()
+void  LED6() // programme  13
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -805,7 +805,7 @@ delay(2000);
   }
 }
 }
-  void  LED7()
+  void  LED7() // programme 14
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -837,7 +837,7 @@ delay(2000);
   }
 }
 }
-void  LED8()
+void  LED8() // programme 15
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -856,10 +856,12 @@ digitalWrite(L8,HIGH);
 delay(attente);
 digitalWrite(L8,LOW);
 delay(attente);
+ }
+  }
   }
   }
 }
-  void  LED9()
+  void  LED9() // programme 16
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -891,7 +893,7 @@ delay(2000);
   }
 }
 }
-void  LED10()
+void  LED10() // programme 17
 { 
   while(pouls!=1) { 
   if (pouls<250){ 
@@ -932,7 +934,7 @@ delay(2000);
 
 
  
-void MainMenuDisplay()
+void MainMenuDisplay() //fonction menu
 {
    
     lcd.clear();
@@ -940,7 +942,7 @@ void MainMenuDisplay()
     switch (mainMenuPage)
     {
         case 1:
-          lcd.print("1. CoeurAllume");
+          lcd.print("1. CoeurAllume"); // different écriture pour les menus
           break;
         case 2:
           lcd.print("2. UnsurDeux");
@@ -998,20 +1000,20 @@ void MainMenuDisplay()
 void MainMenuBtn()
 {
     WaitBtnRelease();
-    if(btn_push == 'R')
+    if(btn_push == 'R') //  pour aller à droite dans le menu
     {
         mainMenuPage++;
         if(mainMenuPage > mainMenuTotal)
           mainMenuPage = 1;
     }
-    else if(btn_push == 'D')
+    else if(btn_push == 'D')//  pour aller en haut dans le menu
     {
         mainMenuPage--;
         if(mainMenuPage == 0)
           mainMenuPage = mainMenuTotal;    
     }
    
-    if(mainMenuPage != mainMenuPageOld) //only update display when page change
+    if(mainMenuPage != mainMenuPageOld) 
     {
         MainMenuDisplay();
         mainMenuPageOld = mainMenuPage;
@@ -1031,17 +1033,17 @@ char ReadKeypad()
   keypad_value = analogRead(keypad_pin);
  
   if(keypad_value < 100)
-    return 'R';
+    return 'R'; // droite 
   else if(keypad_value < 200)
-    return 'U';
+    return 'U';  // en haut
   else if(keypad_value < 500)
-    return 'D';
+    return 'D'; // en haut
   else if(keypad_value < 600)
-    return 'L';
+    return 'L'; // gauche
   else if(keypad_value < 800)
-    return 'S';
+    return 'S'; // selection
   else
-    return 'N';
+    return 'N'; // return non
  
 }
  
