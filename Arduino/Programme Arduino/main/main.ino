@@ -73,8 +73,6 @@ pinMode(L10,OUTPUT);
   pouls=0;
   Serial.begin(9600);
 
-  Serial.println("00;00");
-
   time = millis();
 
   //préchauffage pour que les résultats soit plus juste
