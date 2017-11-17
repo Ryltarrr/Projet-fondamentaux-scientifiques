@@ -186,14 +186,12 @@ void afficherMediane(Bpm *tab, int compteur) {
 // fonctionnement du tri de type quicksort
 void swapF(float *a, float *b) {
   float c = *a;
-
   *a = *b;
   *b = c;
 }
 
 void swapI(int *a, int *b) {
   int c = *a;
-
   *a = *b;
   *b = c;
 }
