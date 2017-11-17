@@ -57,10 +57,14 @@ pinMode(L8,OUTPUT);
 pinMode(L9,OUTPUT);
 pinMode(L10,OUTPUT);
 
-lcd.begin(16,2);  //Initialize a 2x16 type LCD
-lcd.createChar(0, coeur);
-MainMenuDisplay();
-delay(1000);
+    lcd.begin(16,2);
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Patientez ...");
+    lcd.setCursor(1,1);
+    lcd.print("Prise du pouls");
+    lcd.setCursor(1,2);
+
 
 
 
@@ -98,7 +102,10 @@ delay(1000);
   attente = 60/pouls*1000;
   nc=1;
 
-  MainMenuDisplay();
+lcd.begin(16,2);  //Initialize a 2x16 type LCD
+lcd.createChar(0, coeur);
+MainMenuDisplay();
+delay(1000);
 }
 
 
