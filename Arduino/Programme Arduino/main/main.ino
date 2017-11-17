@@ -69,7 +69,7 @@ delay(1000);
   pouls=0;
   Serial.begin(9600);
 
-  Serial.println("Veuillez patienter");
+  Serial.println("00;00");
 
   time = millis();
 
