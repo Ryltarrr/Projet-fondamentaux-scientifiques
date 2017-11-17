@@ -169,6 +169,18 @@ void insertionsort(Bpm *tab, int compteur) {
 
 }
 
+void afficherMediane(Bpm *tab, int compteur) {
+  Bpm tabCpy[NBR_MAX_VALEURS];
+  int i;
+  for (i = 1; i < compteur; i++) {
+    tabCpy[i].temps = tab[i].temps;
+    tabCpy[i].freq = tab[i].freq;
+  }
+  quicksort(tabCpy, compteur);
+  printf("La mediane du pouls est : %f BPM, \x85 %d millisecondes.\n", tabCpy[compteur/2].freq, tabCpy[compteur/2].temps);
+}
+
+
 
 // différentes fonction permettant le
 // fonctionnement du tri de type quicksort
