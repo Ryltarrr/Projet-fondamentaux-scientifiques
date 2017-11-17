@@ -9,6 +9,7 @@ int keypad_pin = A0;
 int keypad_value = 0;
 int keypad_value_old = 0;
 int n;
+int nc = 0;
 
 long int pulse;
 
@@ -41,7 +42,7 @@ const int L9 = 38;
 const int L10 = 39;
 
 float pouls;
-float attente = 60/pouls*1000;
+float attente;
 
 void setup() {
 
@@ -56,10 +57,12 @@ pinMode(L8,OUTPUT);
 pinMode(L9,OUTPUT);
 pinMode(L10,OUTPUT);
 
-    lcd.begin(16,2);  //Initialize a 2x16 type LCD
-    lcd.createChar(0, coeur);
-    MainMenuDisplay();
-    delay(1000);
+lcd.begin(16,2);  //Initialize a 2x16 type LCD
+lcd.createChar(0, coeur);
+MainMenuDisplay();
+delay(1000);
+
+
 
   n=0;
   pulse=0;
@@ -72,7 +75,7 @@ pinMode(L10,OUTPUT);
 
   //préchauffage pour que les résultats soit plus juste
   while((millis()-time)<5000){
-    analogRead(0);
+    analogRead(10);
   }
 
   time = millis();
@@ -81,17 +84,21 @@ pinMode(L10,OUTPUT);
   while((millis()-time)< 10000){
     if ((millis()-time)%100 == 0)
       //calcule de la moyenne du pouls partie 1
-      pulse=pulse+(((1000.0*60.0)/(analogRead(0)))-100);
+      pulse=pulse+(((1000.0*60.0)/(analogRead(10)))-100);
       n=n+1;
       //sortie sur port série pour le processing
       Serial.print(millis()-time);
       Serial.print(';');
-      Serial.println(((1000.0*60.0)/(analogRead(0)))-100);
+      Serial.println(((1000.0*60.0)/(analogRead(10)))-100);
+      delay (100);
    
   }
   //attribution à la variable pouls la moyenne du pouls
- pouls = pulse / n;
+  pouls = pulse / n;
+  attente = 60/pouls*1000;
+  nc=1;
 
+  MainMenuDisplay();
 }
 
 
@@ -189,6 +196,7 @@ void loop()
 }//--------------- End of loop() loop ---------------------
 void CoeurAllume()
 { 
+  
   while(pouls!=1) { 
   if (pouls<250){ 
     lcd.clear();
@@ -923,6 +931,7 @@ delay(2000);
  
 void MainMenuDisplay()
 {
+   
     lcd.clear();
     lcd.setCursor(0,0);
     switch (mainMenuPage)
