@@ -1,12 +1,22 @@
 #include <LiquidCrystal.h> 
 
 
+<<<<<<< HEAD
 LiquidCrystal lcd(8,9,4,5,6,7); //entrée pour l'écran LCD
+=======
+LiquidCrystal lcd(8,9,4,5,6,7);  
+
+unsigned long time;
+>>>>>>> 756e0afe3f9937dbf6654a9335a3af49cf6e5fb5
  
 int keypad_pin = A0; //entrée analogique pour le clavier
 int keypad_value = 0;
 int keypad_value_old = 0;
- 
+int n;
+int nc = 0;
+
+long int pulse;
+
 char btn_push;
  
 byte mainMenuPage = 1;
@@ -35,6 +45,7 @@ const int L8 = 37;   //le port 37 de la carte arduino est desormais L8
 const int L9 = 38;   //le port 38 de la carte arduino est desormais L9 
 const int L10 = 39;  //le port 39 de la carte arduino est desormais L10 
 
+<<<<<<< HEAD
 const float pouls = 60;  //le pouls est égale a 60
 
 float attente = 60/pouls*1000; //relation du pouls
@@ -56,7 +67,71 @@ pinMode(L10,OUTPUT);  //L10 est une sortie
     lcd.createChar(0, coeur); //Affichage du coeur dans LCD
     MainMenuDisplay();
     delay(1000);//pause de 1s
+=======
+float pouls;
+float attente;
 
+void setup() {
+
+pinMode(L1,OUTPUT);
+pinMode(L2,OUTPUT);
+pinMode(L3,OUTPUT);
+pinMode(L4,OUTPUT);
+pinMode(L5,OUTPUT);
+pinMode(L6,OUTPUT);
+pinMode(L7,OUTPUT);
+pinMode(L8,OUTPUT);
+pinMode(L9,OUTPUT);
+pinMode(L10,OUTPUT);
+
+    lcd.begin(16,2);
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Patientez ...");
+    lcd.setCursor(1,1);
+    lcd.print("Prise du pouls");
+    lcd.setCursor(1,2);
+
+
+>>>>>>> 756e0afe3f9937dbf6654a9335a3af49cf6e5fb5
+
+
+  n=0;
+  pulse=0;
+  pouls=0;
+  Serial.begin(9600);
+
+  time = millis();
+
+  //préchauffage pour que les résultats soit plus juste
+  while((millis()-time)<5000){
+    analogRead(10);
+  }
+
+  time = millis();
+
+  //on affiche au moniteur série pendant 5 secondes
+  while((millis()-time)< 10000){
+    if ((millis()-time)%100 == 0)
+      //calcule de la moyenne du pouls partie 1
+      pulse=pulse+(((1000.0*60.0)/(analogRead(10)))-100);
+      n=n+1;
+      //sortie sur port série pour le processing
+      Serial.print(millis()-time);
+      Serial.print(';');
+      Serial.println(((1000.0*60.0)/(analogRead(10)))-100);
+      delay (100);
+   
+  }
+  //attribution à la variable pouls la moyenne du pouls
+  pouls = pulse / n;
+  attente = 60/pouls*1000;
+  nc=1;
+
+lcd.begin(16,2);  //Initialize a 2x16 type LCD
+lcd.createChar(0, coeur);
+MainMenuDisplay();
+delay(1000);
 }
 
 
@@ -154,6 +229,7 @@ void loop()
 }
 void CoeurAllume() // Premier menu pour le coeur allumé
 { 
+  
   while(pouls!=1) { 
   if (pouls<250){ 
     lcd.clear();
@@ -879,6 +955,7 @@ delay(2000);
  
 void MainMenuDisplay()
 {
+   
     lcd.clear();
     lcd.setCursor(0,0);
     switch (mainMenuPage)
