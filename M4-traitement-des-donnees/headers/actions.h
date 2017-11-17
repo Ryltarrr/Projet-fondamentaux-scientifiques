@@ -13,6 +13,8 @@ void afficherPoulsTempsDonne(Bpm *tab, int compteur);
 void afficherMoyPoulsPlageTemps(Bpm *tab, int compteur);
 void afficherNbrLignes(int compteur);
 void afficherMaxMin(Bpm *tab, int compteur);
+void afficherMediane(Bpm *tab, int compteur);
+
 void insertionsort(Bpm *tab, int compteur);
 
 void swapF(float *a, float *b);
