@@ -1,17 +1,9 @@
 #include <LiquidCrystal.h>
 
-<<<<<<< HEAD
-LiquidCrystal lcd(8,9,4,5,6,7); //entrée pour l'écran LCD
-
-
-unsigned long time;
-
-=======
 
 LiquidCrystal lcd(8,9,4,5,6,7);  
 
 unsigned long time;
->>>>>>> 5b6d7a81b00f0e16aa659f00db4ebb278ac04e9f
  
 int keypad_pin = A0;
 int keypad_value = 0;
@@ -48,32 +40,6 @@ const int L8 = 37;
 const int L9 = 38;
 const int L10 = 39;
 
-<<<<<<< HEAD
-
-const float pouls = 60;  //le pouls est égale a 60
-
-float attente = 60/pouls*1000; //relation du pouls
-
-void setup() {
-
-pinMode(L1,OUTPUT);   //L1 est une sortie
-pinMode(L2,OUTPUT);   //L2 est une sortie
-pinMode(L3,OUTPUT);   //L3 est une sortie
-pinMode(L4,OUTPUT);   //L4 est une sortie
-pinMode(L5,OUTPUT);   //L5 est une sortie
-pinMode(L6,OUTPUT);   //L6 est une sortie
-pinMode(L7,OUTPUT);   //L7 est une sortie
-pinMode(L8,OUTPUT);   //L8 est une sortie
-pinMode(L9,OUTPUT);   //L9 est une sortie
-pinMode(L10,OUTPUT);  //L10 est une sortie
-
-    lcd.begin(16,2);  //LCD est composé de 2 lignes de 16 caractères
-    lcd.createChar(0, coeur); //Affichage du coeur dans LCD
-    MainMenuDisplay();
-    delay(1000);//pause de 1s
-=======
-=======
->>>>>>> 5b6d7a81b00f0e16aa659f00db4ebb278ac04e9f
 float pouls;
 float attente;
 
@@ -137,6 +103,7 @@ lcd.createChar(0, coeur);
 MainMenuDisplay();
 delay(1000);
 }
+
 
 
 
@@ -212,13 +179,21 @@ void loop()
             
             case 17:
             LED10();
-            break;           
+            break;
+
+
+            
+
+        
+           
         }
  
           MainMenuDisplay();
           WaitBtnRelease();
     }
    
+
+ 
     delay(10);
  
 }//--------------- End of loop() loop ---------------------
