@@ -14,14 +14,22 @@ int main() {
 void CoeurAllume()
 {
 
+
+
+
 }
 
 void UnSurDeux()
 {
 
+
+
+
 }
 void UnSurtrois()
 {
+
+
 
 }
 void Chenille()
