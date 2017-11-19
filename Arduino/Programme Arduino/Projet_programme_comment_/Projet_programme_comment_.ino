@@ -59,12 +59,11 @@ pinMode(L10,OUTPUT);  //L10 est une sortie
     lcd.begin(16,2);  //LCD est composé de 2 lignes de 16 caractères
     lcd.clear();
     lcd.setCursor(0,0);
-    lcd.print("Patientez ...");
+    lcd.print("Placez votre doigt");
     lcd.setCursor(1,1);
-    lcd.print("Prise du pouls");
+    lcd.print("dans la pince");
     lcd.setCursor(1,2);
-
-
+    delay(5000);
 
 
   n=0;
@@ -80,7 +79,14 @@ pinMode(L10,OUTPUT);  //L10 est une sortie
   }
 
   time = millis();
-
+  
+    lcd.clear();      // changement de ce qui est afficher sur le lcd
+    lcd.setCursor(0,0);
+    lcd.print("Patientez ...");
+    lcd.setCursor(1,1);
+    lcd.print("Prise du pouls");
+    lcd.setCursor(1,2);
+    
   //on affiche au moniteur série pendant 5 secondes
   while((millis()-time)< 10000){
     if ((millis()-time)%100 == 0)
